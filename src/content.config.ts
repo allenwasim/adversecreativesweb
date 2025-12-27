@@ -56,7 +56,13 @@ const pages = defineCollection({
     brands: z.object({
       title: z.string(),
       highlight: z.string(),
-      list: z.array(z.string()),
+      list: z.array(
+        z.object({
+          name: z.string(),
+          logo: z.string(),
+          link: z.string().optional(),
+        })
+      ),
     }),
     howItWorks: z.object({
       label: z.string(),
