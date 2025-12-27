@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import adverseLogo from "../assets/adverse-logo.svg";
+
 interface Props {
   brand: string;
   subBrand: string;
@@ -12,30 +15,18 @@ const { brand, subBrand, contactButton } = Astro.props;
 ---
 
 <nav
-  class="flex items-center justify-between px-6 py-4 md:px-12 max-w-7xl mx-auto w-full z-50 absolute top-0 left-0 right-0"
+  class="flex items-center justify-between px-6 py-2 md:px-12 max-w-7xl mx-auto w-full z-50 absolute top-0 left-0 right-0"
 >
   <div class="flex items-center gap-2">
-    <div class="w-8 h-8 relative">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        class="w-full h-full text-white"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M12 2L2 22H22L12 2Z" fill="currentColor" fill-opacity="0.2"
-        ></path>
-        <path d="M12 6L4.5 21H19.5L12 6Z" fill="currentColor"></path>
-        <path d="M12 10L7 20H17L12 10Z" fill="white"></path>
-      </svg>
-    </div>
-    <span class="text-xl font-bold font-outfit tracking-wide text-white"
-      >{brand}
-      <br />
-      <span
-        class="text-xs font-light text-gray-400 uppercase tracking-widest relative -top-1"
-        >{subBrand}</span
-      ></span
-    >
+    <a href="/" class="block w-32 md:w-40">
+      <Image
+        src={adverseLogo}
+        alt={`${brand} Logo`}
+        class="w-full h-auto object-contain"
+        id="navbar-logo-img"
+        loading="eager"
+      />
+    </a>
   </div>
 
   <div class="flex items-center gap-4">
@@ -83,8 +74,9 @@ const { brand, subBrand, contactButton } = Astro.props;
     </button>
 
     <a
+      id="navbar-cta"
       href={contactButton?.link || "#"}
-      class="bg-white text-black px-6 py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
+      class="bg-white text-black px-6 py-2 rounded-full font-semibold text-sm hover:opacity-90"
     >
       {contactButton?.text || "CONTACT US"}
     </a>
@@ -142,3 +134,28 @@ const { brand, subBrand, contactButton } = Astro.props;
     attributeFilter: ["data-theme"],
   });
 </script>
+
+<style>
+  /* Navbar Light Mode Overrides */
+  /* Since the logo is white text, we invert it for light mode to make it black. 
+     We also rotate hue to keep blue elements blue (Invert Blue -> Orange -> Rotate 180 -> Blue) */
+  :global([data-theme="light"]) #navbar-logo-img {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  :global([data-theme="light"]) #theme-toggle svg {
+    color: #000000 !important;
+  }
+  :global([data-theme="light"]) #theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* light gray hover */
+  }
+
+  /* Invert CTA Button */
+  :global([data-theme="light"]) #navbar-cta {
+    background-color: #0f172a !important; /* slate-900 */
+    color: #ffffff !important;
+  }
+  :global([data-theme="light"]) #navbar-cta:hover {
+    background-color: #1e293b !important; /* slate-800 */
+  }
+</style>

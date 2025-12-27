@@ -7,7 +7,8 @@ const { title, highlight, description, buttons } = Astro.props as Props;
 ---
 
 <section
-  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#00040f] pt-20"
+  id="hero-section"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#00040f] pt-32 transition-colors duration-300"
 >
   <!-- Background Ambient Effects -->
   <!-- Subtle ambient glow at corners -->
@@ -23,7 +24,7 @@ const { title, highlight, description, buttons } = Astro.props as Props;
   <!-- ARC SYSTEM CONTAINER -->
   <!-- Positioned to ensure the arcs curve upwards. 'translate-y' adjusts how much of the hill is visible. -->
   <div
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20%] w-full h-full flex items-center justify-center z-0 pointer-events-none select-none"
+    class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-[15%] w-full h-full flex items-center justify-center z-0 pointer-events-none select-none"
   >
     <!-- 1. OUTER ARC (Largest, Faint Background) -->
     <div
@@ -38,7 +39,7 @@ const { title, highlight, description, buttons } = Astro.props as Props;
       <!-- ICONS -->
       <!-- Lightning (Top Center) -->
       <div
-        class="absolute -top-[3%] left-1/2 transform -translate-x-1/2 flex items-center justify-center w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-blue-500/50 rounded-full shadow-[0_0_40px_rgba(59,130,246,0.4)] text-blue-400 z-50 float-top"
+        class="absolute -top-[1%] left-1/2 transform -translate-x-1/2 flex items-center justify-center w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-blue-500/50 rounded-full shadow-[0_0_40px_rgba(59,130,246,0.4)] text-blue-400 z-50 float-top"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -210,3 +211,74 @@ const { title, highlight, description, buttons } = Astro.props as Props;
     delay: 1,
   });
 </script>
+
+<style>
+  :global([data-theme="light"]) #hero-section {
+    background-color: #ffffff !important;
+  }
+
+  /* Text Overrides */
+  :global([data-theme="light"]) #hero-section h1 .text-white {
+    color: #000000 !important;
+  }
+
+  :global([data-theme="light"]) #hero-section p.text-gray-400 {
+    color: #4b5563 !important; /* gray-600 */
+  }
+
+  /* Button Overrides */
+  :global([data-theme="light"]) #hero-section a.bg-white {
+    background-color: #0f172a !important; /* slate-900 */
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  :global([data-theme="light"]) #hero-section a.bg-white:hover {
+    background-color: #1e293b !important; /* slate-800 */
+  }
+
+  /* Arc Backgrounds Overrides */
+
+  /* Outer Arc */
+  :global([data-theme="light"]) #hero-section .bg-\[\#010618\] {
+    background-color: #eff6ff !important; /* blue-50 */
+    border-color: #bfdbfe !important; /* blue-200 */
+    box-shadow: 0 -20px 80px rgba(30, 58, 138, 0.1) !important;
+  }
+
+  /* Middle Arc */
+  :global([data-theme="light"]) #hero-section .bg-\[\#030b2e\] {
+    background-color: #dbeafe !important; /* blue-100 */
+    border-color: #93c5fd !important; /* blue-300 */
+    box-shadow: 0 -20px 80px rgba(30, 58, 138, 0.1) !important;
+  }
+
+  /* Inner Arc (Gradient) */
+  :global([data-theme="light"]) #hero-section .from-\[\#051139\] {
+    background: linear-gradient(
+      to bottom,
+      #dbeafe,
+      /* blue-100 */ #eff6ff,
+      /* blue-50 */ #f8fafc /* slate-50 */
+    ) !important;
+    border-top-color: #93c5fd !important; /* blue-300 - stronger border */
+    box-shadow: 0 -20px 100px rgba(59, 130, 246, 0.2) !important; /* slightly stronger shadow */
+  }
+
+  /* Floating Icons Text/Border Overrides */
+  :global([data-theme="light"]) #hero-section .float-top,
+  :global([data-theme="light"]) #hero-section .float-left,
+  :global([data-theme="light"]) #hero-section .float-right {
+    background: #ffffff !important;
+    border-color: #bfdbfe !important; /* blue-200 */
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  :global([data-theme="light"]) #hero-section .float-top,
+  :global([data-theme="light"]) #hero-section .float-left {
+    color: #2563eb !important; /* blue-600 */
+  }
+
+  :global([data-theme="light"]) #hero-section .float-right {
+    color: #4f46e5 !important; /* indigo-600 */
+  }
+</style>
