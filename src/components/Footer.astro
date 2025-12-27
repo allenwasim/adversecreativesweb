@@ -15,7 +15,10 @@ const {
 } = Astro.props as Props;
 ---
 
-<footer class="bg-[#020617] border-t border-white/5">
+<footer
+  id="footer-section"
+  class="bg-[#020617] border-t border-white/5 transition-colors duration-300"
+>
   <!-- CTA
 Section -->
   <div class="relative py-20 px-6 overflow-hidden">
@@ -48,6 +51,9 @@ sm:flex-row items-center justify-center gap-4">
       </div>
     </div>
   </div>
+  <!-- Divider -->
+  <div class="border-t border-white/10 w-full"></div>
+
   <!-- Main Footer Content -->
   <div
     class="max-w-7xl mx-auto px-6 py-12
@@ -77,9 +83,6 @@ font-outfit">{companyName}</span>
 leading-relaxed mb-6">
         {companyDesc}
       </p>
-      <div class="text-gray-600 text-xs">
-        &copy; 2025 AdVerse Media. All rights reserved.
-      </div>
     </div>
     <div class="col-span-1 lg:col-span-2 flex justify-around">
       <div>
@@ -189,6 +192,61 @@ transition-colors"
           )
         }
       </div>
+
+      <style>
+        :global([data-theme="light"]) #footer-section {
+          background: #ffffff !important;
+          border-top: 1px solid #e5e7eb !important;
+        }
+
+        :global([data-theme="light"]) #footer-section .bg-gradient-to-r {
+          display: none;
+        }
+
+        :global([data-theme="light"]) #footer-section h2,
+        :global([data-theme="light"]) #footer-section h4,
+        :global([data-theme="light"]) #footer-section span {
+          color: #000000;
+        }
+
+        :global([data-theme="light"]) #footer-section p,
+        :global([data-theme="light"]) #footer-section li,
+        :global([data-theme="light"]) #footer-section .text-gray-400,
+        :global([data-theme="light"]) #footer-section .text-gray-500,
+        :global([data-theme="light"]) #footer-section .text-gray-600 {
+          color: #4b5563 !important; /* gray-600 */
+        }
+
+        /* Icons */
+        :global([data-theme="light"]) #footer-section svg.text-white,
+        :global([data-theme="light"]) #footer-section svg[fill="white"] {
+          color: #000000 !important;
+          fill: #000000 !important;
+        }
+        :global([data-theme="light"]) #footer-section path[fill="white"] {
+          fill: #000000 !important;
+        }
+
+        /* Secondary Button Inversion for visibility on white bg */
+        :global([data-theme="light"]) #footer-section a.bg-white {
+          background-color: #0f172a !important; /* slate-900 */
+          color: #ffffff !important;
+        }
+        :global([data-theme="light"]) #footer-section a.bg-white:hover {
+          background-color: #1e293b !important; /* slate-800 */
+        }
+
+        /* Light mode dividers */
+        :global([data-theme="light"]) #footer-section .border-white\/10 {
+          border-color: #e5e7eb !important; /* gray-200 */
+        }
+      </style>
+    </div>
+  </div>
+  <!-- Bottom Copyright Bar -->
+  <div class="max-w-7xl mx-auto px-6 py-6 text-center md:text-left">
+    <div class="text-gray-600 text-xs">
+      &copy; 2025 AdVerse Media. All rights reserved.
     </div>
   </div>
 </footer>

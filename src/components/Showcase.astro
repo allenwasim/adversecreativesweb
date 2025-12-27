@@ -15,7 +15,10 @@ const {
 } = Astro.props as Props;
 ---
 
-<section class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+<section
+  id="showcase-section"
+  class="py-20 px-6 md:px-12 max-w-7xl mx-auto transition-colors duration-300"
+>
   <div class="text-center mb-16">
     <span class="text-blue-500 font-semibold uppercase tracking-wider text-sm"
       >{label}</span
@@ -148,4 +151,52 @@ const {
       ease: "power2.out",
     });
   </script>
+
+  <style>
+    :global([data-theme="light"]) #showcase-section h2 {
+      color: #000000;
+    }
+    :global([data-theme="light"]) #showcase-section p {
+      color: #4b5563;
+    }
+
+    :global([data-theme="light"]) .showcase-item {
+      background: #ffffff !important;
+      border-color: #e5e7eb !important;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Override internal dark backgrounds */
+    :global([data-theme="light"]) .bg-gray-900 {
+      background-color: #f8fafc !important;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Exception: Keep the Blue Card (Right Side) Blue */
+    :global([data-theme="light"]) .showcase-item.bg-blue-900\/40 {
+      background-color: rgba(30, 58, 138, 0.4) !important; /* blue-900/40 */
+      border-color: rgba(59, 130, 246, 0.2) !important; /* blue-500/20 */
+      box-shadow: none !important;
+    }
+
+    :global([data-theme="light"]) .showcase-item.bg-blue-900\/40 h3,
+    :global([data-theme="light"]) .showcase-item.bg-blue-900\/40 span,
+    :global([data-theme="light"]) .showcase-item.bg-blue-900\/40 li span {
+      color: white !important; /* Keep text white on blue bg */
+    }
+
+    :global([data-theme="light"]) .showcase-item.bg-blue-900\/40 svg {
+      color: #60a5fa !important; /* blue-400 */
+    }
+
+    /* Hide gradients/blurs in light mode for cleaner look - BUT keep for blue card */
+    :global([data-theme="light"])
+      .bg-gradient-to-b:not(.showcase-item.bg-blue-900\/40 *),
+    :global([data-theme="light"])
+      .blur-3xl:not(.showcase-item.bg-blue-900\/40 *) {
+      opacity: 0;
+    }
+  </style>
 </section>
