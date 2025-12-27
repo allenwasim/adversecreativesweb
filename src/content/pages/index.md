@@ -140,4 +140,5 @@ footer:
   socials:
     linkedin: "#"
     facebook: "#"
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d999772.8337642457!2d76.4553504!3d11.809856!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba86c0c9a25fde9%3A0xe2ec7d610a232399!2sSilk%20Board%20Office!5e0!3m2!1sen!2sin!4v1766811959622!5m2!1sen!2sin"
 ---

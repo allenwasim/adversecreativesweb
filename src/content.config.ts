@@ -120,6 +120,7 @@ const pages = defineCollection({
           facebook: z.string(),
         })
         .optional(),
+      mapEmbedUrl: z.string().optional(),
     }),
   }),
 });
