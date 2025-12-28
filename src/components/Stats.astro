@@ -10,15 +10,23 @@ const { label, title, highlight, description, items } = Astro.props as Props;
   id="stats-section"
   class="py-20 px-6 md:px-12 max-w-7xl mx-auto transition-colors duration-300"
 >
-  <div class="mb-12">
-    <span class="text-[#3253CC] font-semibold uppercase tracking-wider text-sm"
+  <div class="mb-12 flex flex-col items-start gap-2 max-w-4xl">
+    <span
+      class="font-poppins font-medium text-[20px] leading-[30px] text-[#3253CC]"
       >{label}</span
     >
-    <h2 class="text-3xl md:text-5xl font-bold mt-2 font-outfit">
+    <h2
+      class="font-poppins font-semibold text-[36px] leading-[54px] text-[#232323]"
+    >
       {title}
-      <span class="text-[#3253CC]">{highlight}</span>
+      <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-[#4068FC] to-[#00229D]"
+        >{highlight}</span
+      >
     </h2>
-    <p class="text-gray-400 mt-4 max-w-2xl">
+    <p
+      class="font-poppins font-normal text-[20px] leading-[30px] text-[#565656] max-w-3xl"
+    >
       {description}
     </p>
   </div>
