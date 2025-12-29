@@ -138,7 +138,7 @@ footer:
   companyDesc: "Turning everyday spaces into impactful brand experiences that capture attention and drive engagement."
   contact:
     phone: "+919188232874"
-    email: "support@adverse-media.com"
+    email: "info.adversecreatives.com"
   socials:
     linkedin: "#"
     facebook: "#"
