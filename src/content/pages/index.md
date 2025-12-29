@@ -137,7 +137,7 @@ footer:
   companyName: "AdVerse"
   companyDesc: "Turning everyday spaces into impactful brand experiences that capture attention and drive engagement."
   contact:
-    phone: "+919188232874"
+    phone: "+9110870573"
     email: "info.adversecreatives.com"
   socials:
     linkedin: "#"
