@@ -97,14 +97,23 @@ const pages = defineCollection({
       ),
     }).optional(),
     footer: z.object({
-      title: z.string(),
-      subtitle: z.string(),
       companyName: z.string(),
       companyDesc: z.string(),
       contact: z.object({
         phone: z.string(),
         email: z.string(),
       }),
+      socials: z
+        .object({
+          linkedin: z.string(),
+          facebook: z.string(),
+        })
+        .optional(),
+      mapEmbedUrl: z.string().optional(),
+    }).optional(),
+    callToAction: z.object({
+      title: z.string(),
+      subtitle: z.string(),
       ctaButtons: z
         .array(
           z.object({
@@ -114,13 +123,6 @@ const pages = defineCollection({
           })
         )
         .optional(),
-      socials: z
-        .object({
-          linkedin: z.string(),
-          facebook: z.string(),
-        })
-        .optional(),
-      mapEmbedUrl: z.string().optional(),
     }).optional(),
     contactSection: z
       .object({

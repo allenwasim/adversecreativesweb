@@ -181,8 +181,6 @@ export default defineStackbitConfig({
               name: "footer",
               type: "object",
               fields: [
-                { name: "title", type: "string", required: false },
-                { name: "subtitle", type: "string", required: false },
                 { name: "companyName", type: "string", required: false },
                 { name: "companyDesc", type: "string", required: false },
                 {
@@ -192,23 +190,6 @@ export default defineStackbitConfig({
                     { name: "phone", type: "string", required: false },
                     { name: "email", type: "string", required: false },
                   ],
-                },
-                {
-                  name: "ctaButtons",
-                  type: "list",
-                  items: {
-                    type: "object",
-                    fields: [
-                      { name: "text", type: "string", required: false },
-                      { name: "link", type: "string", required: false },
-                      {
-                        name: "variant",
-                        type: "enum",
-                        options: ["primary", "secondary"],
-                        required: false,
-                      },
-                    ],
-                  },
                 },
                 {
                   name: "socials",
@@ -261,6 +242,31 @@ export default defineStackbitConfig({
                       name: "locations",
                       type: "list",
                       items: { type: "string" },
+                    },
+                  ],
+                },
+                {
+                  name: "callToAction",
+                  type: "object",
+                  fields: [
+                    { name: "title", type: "string", required: false },
+                    { name: "subtitle", type: "string", required: false },
+                    {
+                      name: "ctaButtons",
+                      type: "list",
+                      items: {
+                        type: "object",
+                        fields: [
+                          { name: "text", type: "string", required: false },
+                          { name: "link", type: "string", required: false },
+                          {
+                            name: "variant",
+                            type: "enum",
+                            options: ["primary", "secondary"],
+                            required: false,
+                          },
+                        ],
+                      },
                     },
                   ],
                 },

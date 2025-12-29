@@ -25,4 +25,5 @@ mapSection:
     - "Jayanagar"
     - "BTM Layout (1st & 2nd Stage)"
     - "Madiwala"
+    - "Madiwala"
 ---

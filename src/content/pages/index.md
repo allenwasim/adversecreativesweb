@@ -122,7 +122,7 @@ features:
       img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop"
       icon: "trending-up"
 
-footer:
+callToAction:
   title: "Make Your Brand Unmissable."
   subtitle: "No scrolling. No skipping. Just visibility that works."
   ctaButtons:
@@ -132,6 +132,8 @@ footer:
     - text: "Secure Your Spot"
       link: "https://wa.me/+919188232874?text=Hello%20I%20would%20love%20to%20know%20more%20about%20Adverse"
       variant: "secondary"
+
+footer:
   companyName: "AdVerse"
   companyDesc: "Turning everyday spaces into impactful brand experiences that capture attention and drive engagement."
   contact:
