@@ -11,7 +11,7 @@ contactSection:
   description: "Have a question, want to book a screen, or need help choosing the right locations? We're here to help you get noticed where it matters most."
   phones:
     - label: "Phone"
-      number: "+91 91108 70573"
+      number: "+9110870573"
   emails:
     - label: "Email"
       address: "info@adversecreatives.com"
